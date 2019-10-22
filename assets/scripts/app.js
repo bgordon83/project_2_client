@@ -1,5 +1,5 @@
 'use strict'
-import $ from 'jquery'
+const $ = require('jquery')
 // use require with a reference to bundle the file and use it in this file
 // const examprle = require('./example')
 
