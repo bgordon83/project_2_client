@@ -1,6 +1,15 @@
 'use strict'
 const store = require('./store')
 
+const onCreateWorkoutSuccess = () => {
+  successMessage('Create workout Successful!')
+  $('#message').css('color', 'green')
+}
+const onCreateWorkoutFailure = () => {
+  failureMessage('Create workout failed')
+  $('#message').css('color', 'red')
+}
+
 const successMessage = function (newText) {
   $('#message').text(newText)
   $('#message').removeClass('failure')
@@ -65,5 +74,7 @@ module.exports = {
   onChangePasswordSuccess,
   onChangePasswordFailure,
   onSignOutSuccess,
-  onSignOutFailure
+  onSignOutFailure,
+  onCreateWorkoutSuccess,
+  onCreateWorkoutFailure
 }

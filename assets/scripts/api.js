@@ -1,7 +1,15 @@
-const config = require('../config')
+const config = require('./config')
 // require `store` so we have access to our `token`
 // so the API knows who we anywhere
-const store = require('../store')
+const store = require('./store')
+
+const onCreateWorkout = function (formData) {
+  return $.ajax({
+    method: 'POST',
+    url: config.apiUrl + '/workout_logs',
+    data: formData
+  })
+}
 
 const signUp = function (formData) {
   return $.ajax({
@@ -44,5 +52,6 @@ module.exports = {
   signUp,
   signIn,
   changePassword,
-  signOut
+  signOut,
+  onCreateWorkout
 }

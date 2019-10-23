@@ -1,5 +1,5 @@
 'use strict'
-const $ = require('jquery')
+
 // use require with a reference to bundle the file and use it in this file
 // const examprle = require('./example')
 
@@ -15,4 +15,6 @@ $(() => {
   $('#sign-in').on('submit', events.onSignIn)
   $('#change-password').on('submit', events.onChangePassword)
   $('#sign-out').on('submit', events.onSignOut)
+  $('#change-password').on('submit', events.onChangePassword)
+  $('#create-workout').on('submit', events.onCreateWorkout)
 })
