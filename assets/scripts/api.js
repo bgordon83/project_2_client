@@ -7,7 +7,10 @@ const store = require('./store')
 const displayWorkouts = function () {
   return $.ajax({
     method: 'GET',
-    url: config.apiUrl + '/workout_logs'
+    url: config.apiUrl + '/workout_logs',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
   })
 }
 
@@ -15,7 +18,11 @@ const onCreateWorkout = function (formData) {
   return $.ajax({
     method: 'POST',
     url: config.apiUrl + '/workout_logs',
-    data: formData
+    data: formData,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+
   })
 }
 
