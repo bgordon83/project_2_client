@@ -2,7 +2,7 @@
 const store = require('./store')
 
 const onCreateWorkoutSuccess = () => {
-  successMessage('Create workout Successful!')
+  successMessage('Create workout Success')
   $('#message').css('color', 'green')
 }
 const onCreateWorkoutFailure = () => {

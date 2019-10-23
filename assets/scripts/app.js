@@ -16,5 +16,5 @@ $(() => {
   $('#change-password').on('submit', events.onChangePassword)
   $('#sign-out').on('submit', events.onSignOut)
   $('#change-password').on('submit', events.onChangePassword)
-  $('#create-workout').on('submit', events.onCreateWorkout)
+  $('#Create-Workout').on('submit', events.onCreateWorkout)
 })

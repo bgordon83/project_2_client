@@ -3,6 +3,13 @@ const config = require('./config')
 // so the API knows who we anywhere
 const store = require('./store')
 
+const displayWorkouts = function () {
+  return $.ajax({
+    method: 'GET',
+    url: config.apiUrl + '/workout_logs'
+  })
+}
+
 const onCreateWorkout = function (formData) {
   return $.ajax({
     method: 'POST',
@@ -53,5 +60,6 @@ module.exports = {
   signIn,
   changePassword,
   signOut,
-  onCreateWorkout
+  onCreateWorkout,
+  displayWorkouts
 }

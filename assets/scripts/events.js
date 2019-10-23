@@ -9,6 +9,7 @@ const onCreateWorkout = function (event) {
   api.onCreateWorkout(formData)
     .then(ui.onCreateWorkoutSuccess)
     .catch(ui.onCreateWorkoutFailure)
+  // console.log(api.displayWorkouts().then(response => response.json()))
 }
 
 const onSignUp = function (event) {

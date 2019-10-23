@@ -3,7 +3,8 @@
 let apiUrl
 const apiUrls = {
   production: 'https://calm-basin-76423.com',
-  development: 'http://localhost:4741'
+  development: 'https://calm-basin-76423.com'
+  // development: 'http://localhost:4741'
 }
 
 if (window.location.hostname === 'localhost') {
