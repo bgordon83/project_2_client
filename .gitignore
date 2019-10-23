@@ -1,8 +1,8 @@
 tmp
 dist
-
+application.js
 specs.js
-
+vendor.js
 _SpecRunner.html
 
 # Created by https://www.gitignore.io/api/osx,linux

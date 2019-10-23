@@ -11,12 +11,6 @@
   <!-- Do not add `script` tags-->
   <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
   <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-  <script src="public/assets/scripts/app.js" type="text/javascript" charset="utf-8" defer></script>
-  <script src="public/assets/scripts/api.js" type="text/javascript" charset="utf-8" defer></script>
-  <script src="public/assets/scripts/config.js" type="text/javascript" charset="utf-8" defer></script>
-  <script src="public/assets/scripts/store.js" type="text/javascript" charset="utf-8" defer></script>
-  <script src="public/assets/scripts/ui.js" type="text/javascript" charset="utf-8" defer></script>
-  <script src="public/assets/scripts/events.js" type="text/javascript" charset="utf-8" defer></script>
 </head>
 
 <body>
@@ -56,10 +50,10 @@
 
   <form id="Create-Workout">
     <h3>Create Workout</h3>
-    <input type="routine" name="routine" placeholder="routine name">
-    <input type="sets" name="sets" placeholder="sets">
-    <input type="reps" name="reps" placeholder="reps">
-    <input type="time_spent" name="time_spent" placeholder="time spent">
+    <input type="text" name="workout[routine]" placeholder="routine name">
+    <input type="number" name="workout[sets]" placeholder="sets">
+    <input type="number" name="workout[reps]" placeholder="reps">
+    <input type="number" name="workout[time_spent]" placeholder="time spent">
     <button>Create Workout</button>
   </form>
 
