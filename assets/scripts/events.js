@@ -2,6 +2,16 @@ const getFormFields = require('../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
 
+const onCreateWorkout = function (event) {
+  event.preventDefault()
+  const form = event.target
+  const formData = getFormFields(form)
+  api.onCreateWorkout(formData)
+    .then(ui.onCreateWorkoutSuccess)
+    .catch(ui.onCreateWorkoutFailure)
+  // console.log(api.displayWorkouts().then(response => response.json()))
+}
+
 const onSignUp = function (event) {
   // page doesnt refresh when you click on submit button
   event.preventDefault()
@@ -41,5 +51,6 @@ module.exports = {
   onSignUp,
   onSignIn,
   onChangePassword,
-  onSignOut
+  onSignOut,
+  onCreateWorkout
 }
