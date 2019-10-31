@@ -1,6 +1,37 @@
 'use strict'
 const store = require('./store')
 
+const onShowWorkoutsSuccess = function (data) {
+
+  successMessage('Here are your workouts!')
+  $('#workout-message').html('')
+  $('#workout-message2').html('')
+  // data.workout.id workout
+  console.log('this is from ui ' + data)
+    data.workout_logs.forEach(workout => {
+      const workoutHTML = (`
+   <p>ID: ${workout.id}</p>
+   <p>reps: ${workout.reps}</p>
+  <p>sets ${workout.sets}</p>
+  <p>time spent ${workout.time}</p>
+  <p>routine name: ${workout.routine}</p>
+    <br>
+   `)
+      $('#workout-message').append(workoutHTML)
+    })
+    $('#workout-message').show()
+  }
+
+
+
+const onUpdateWorkoutSuccess = () => {
+  successMessage('Create workout success')
+  $('#message').css('color', 'green')
+}
+const onUpdateWorkoutFailure = () => {
+  failureMessage('Create workout failed')
+  $('#message').css('color', 'red')
+}
 const onCreateWorkoutSuccess = () => {
   successMessage('Create workout success')
   $('#message').css('color', 'green')
@@ -38,8 +69,10 @@ const onSignInSuccess = (responseData) => {
   store.user = responseData.user
   $('#message').css('color', 'green')
   $('#sign-up, #sign-in').hide()
-  $('#change-password').show()
+  $('#change-password').hide()
   $('#sign-out').show()
+  $('#Create-Workout').show()
+  $('#Update-Workout').show()
 }
 
 const onSignInFailure = function () {
@@ -61,6 +94,9 @@ const onSignOutSuccess = function () {
   $('#sign-up, #sign-in').show()
   $('#change-password').hide()
   $('#sign-out').hide()
+  $('#Create-Workout').hide()
+  $('#change-password').show()
+  $('#Update-Workout').hide()
 }
 
 const onSignOutFailure = function () {
@@ -76,5 +112,8 @@ module.exports = {
   onSignOutSuccess,
   onSignOutFailure,
   onCreateWorkoutSuccess,
-  onCreateWorkoutFailure
+  onCreateWorkoutFailure,
+  onUpdateWorkoutSuccess,
+  onUpdateWorkoutFailure,
+  onShowWorkoutsSuccess
 }

@@ -4,10 +4,36 @@ const config = require('./config')
 // so the API knows who we anywhere
 const store = require('./store')
 
-const displayWorkouts = function () {
+const onShowWorkouts = function () {
   return $.ajax({
     method: 'GET',
+    // if error, take out slash at end of next line
     url: config.apiUrl + '/workout_logs',
+    headers: {
+      // console.log(store.user.token)
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+  console.log(store.user)
+}
+
+const onShowWorkout = function (formData) {
+//  // console.log('this is api for viewOne ' + formData)
+  return $.ajax({
+    method: 'GET',
+    // if error, take out slash at end of next line
+    url: config.apiUrl + '/workout_logs/' + formData.workout_log.id,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const onUpdateWorkout = function (formData) {
+  return $.ajax({
+    method: 'PATCH',
+    url: config.apiUrl + '/workout_logs/' + formData.workout_log.id,
+    data: formData,
     headers: {
       Authorization: 'Token token=' + store.user.token
     }
@@ -69,5 +95,7 @@ module.exports = {
   changePassword,
   signOut,
   onCreateWorkout,
-  displayWorkouts
+  onUpdateWorkout,
+  onShowWorkouts,
+  onShowWorkout
 }

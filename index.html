@@ -14,8 +14,10 @@
 </head>
 
 <body>
+
   <h1>Fitness Buddy</h1>
   <h2 id="message"></h2>
+
 
   <form id="sign-up">
     <h3>Sign Up</h3>
@@ -57,10 +59,41 @@
     <button>Create Workout</button>
   </form>
 
-  <div class ="Workouts">
-    <!-- Fetch all workout for user and display -->
 
-  </div>
+    <!-- Fetch all workout for user and display -->
+    <form id="Update-Workout">
+      <h3>Update Workout</h3>
+      <input type="number" min="0" name="workout_log[id]" placeholder='Enter workout ID' required>
+      <input type="text" name="workout_log[routine]" placeholder="routine name">
+      <input type="number" name="workout_log[sets]" placeholder="sets">
+      <input type="number" name="workout_log[reps]" placeholder="reps">
+      <input type="number" name="workout_log[time_spent]" placeholder="time spent">
+      <button>Update Workout</button>
+    </form>
+    <form id="showWorkout">
+
+        <button>View this workout log!</button>
+        <input type="number" min="0" name="workout_log[id]" placeholder='Enter workout_log ID' required>
+    </form>
+    <form id="deleteWokout">
+
+          <button>Delete this workout log!</button>
+          <input type="number" min="0" name="workout_log[id]" placeholder='Enter workout_log ID' required>
+      </form>
+      <form id="showWorkouts">
+
+      <button>View all Workout logs!</button>
+  </form>
+
+  <div>
+     <div id="workout-message"></div>
+   </div>
+
+
+
+
+
+
 
 </body>
 
