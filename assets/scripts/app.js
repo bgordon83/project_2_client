@@ -8,11 +8,12 @@
 const events = require('./events.js')
 
 $(() => {
-  $('#sign-out').hide()
-  $('#Create-Workout').hide()
-  $('#Update-Workout').hide()
+  // $('#Create-Workout').hide()
+  // $('#Update-Workout').hide()
 
   // your JS code goes here
+  $('#after-sign-in').hide()
+  $('#before-sign-in').show()
   $('#sign-up').on('submit', events.onSignUp)
   $('#sign-in').on('submit', events.onSignIn)
   $('#change-password').on('submit', events.onChangePassword)
