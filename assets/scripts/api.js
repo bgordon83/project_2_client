@@ -4,17 +4,56 @@ const config = require('./config')
 // so the API knows who we anywhere
 const store = require('./store')
 
-const displayWorkouts = function () {
+const showWorkouts = function () {
   return $.ajax({
     method: 'GET',
+    // if error, take out slash at end of next line
     url: config.apiUrl + '/workout_logs',
+
+    headers: {
+      // console.log(store.user.token)
+      // console.log(store.user.token)
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const showWorkout = function (formData) {
+//  // console.log('this is api for viewOne ' + formData)
+  return $.ajax({
+    method: 'GET',
+    // if error, take out slash at end of next line
+    url: config.apiUrl + '/workout_logs/' + formData.workout_log.id,
     headers: {
       Authorization: 'Token token=' + store.user.token
     }
   })
 }
 
-const onCreateWorkout = function (formData) {
+const deleteWorkout = function (formData) {
+//  // console.log('this is api for viewOne ' + formData)
+  return $.ajax({
+    method: 'DELETE',
+    // if error, take out slash at end of next line
+    url: config.apiUrl + '/workout_logs/' + formData.workout_log.id,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const updateWorkout = function (formData) {
+  return $.ajax({
+    method: 'PATCH',
+    url: config.apiUrl + '/workout_logs/' + formData.workout_log.id,
+    data: formData,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const createWorkout = function (formData) {
   return $.ajax({
     method: 'POST',
     url: config.apiUrl + '/workout_logs',
@@ -59,6 +98,10 @@ const signOut = function (formData) {
     url: config.apiUrl + '/sign-out',
     headers: {
       Authorization: 'Token token=' + store.user.token
+    },
+    success: function () {
+      $('#before-sign-in').show()
+      $('#after-sign-in').hide()
     }
   })
 }
@@ -68,6 +111,9 @@ module.exports = {
   signIn,
   changePassword,
   signOut,
-  onCreateWorkout,
-  displayWorkouts
+  createWorkout,
+  updateWorkout,
+  showWorkouts,
+  showWorkout,
+  deleteWorkout
 }

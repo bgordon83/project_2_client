@@ -14,8 +14,11 @@
 </head>
 
 <body>
+
   <h1>Fitness Buddy</h1>
   <h2 id="message"></h2>
+
+<div id="before-sign-in">
 
   <form id="sign-up">
     <h3>Sign Up</h3>
@@ -26,7 +29,6 @@
   </form>
 
 
-
   <form id="sign-in">
     <h3>Sign In</h3>
     <input type="email" name="email" placeholder="Enter email">
@@ -34,6 +36,9 @@
     <button>Sign In</button>
   </form>
 
+</div>
+
+<div id="after-sign-in">
 
   <form id="change-password">
     <h3>Change Password</h3>
@@ -57,10 +62,45 @@
     <button>Create Workout</button>
   </form>
 
-  <div class ="Workouts">
-    <!-- Fetch all workout for user and display -->
 
+    <!-- Fetch all workout for user and display -->
+    <form id="Update-Workout">
+      <h3>Update Workout</h3>
+      <input type="number" min="0" name="workout_log[id]" placeholder='Enter workout ID' required>
+      <input type="text" name="workout_log[routine]" placeholder="routine name">
+      <input type="number" name="workout_log[sets]" placeholder="sets">
+      <input type="number" name="workout_log[reps]" placeholder="reps">
+      <input type="number" name="workout_log[time_spent]" placeholder="time spent">
+      <button>Update Workout</button>
+    </form>
+
+    <form id="showWorkout">
+        <button>View this workout log!</button>
+        <input type="number" min="0" name="workout_log[id]" placeholder='Enter workout_log ID' required>
+    </form>
+
+    <form id="deleteWokout">
+          <button>Delete this workout log!</button>
+          <input type="number" min="0" name="workout_log[id]" placeholder='Enter workout_log ID' required>
+    </form>
+
+  <div id="showWorkouts">
+      <button>View all Workout logs!</button>
   </div>
+
+  <div>
+     <div id="workout-message"></div>
+   </div>
+   <div>
+      <div id="workout-message2"></div>
+    </div>
+  </div>
+
+
+
+
+
+
 
 </body>
 
