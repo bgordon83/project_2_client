@@ -1,420 +1,63 @@
 
+# Fitness Buddy
+This app allows the user to track and record their workout sessions, and then view workout being given an id in order to update or delete.
 
-# rails-api-template
 
-A template for starting projects with `rails-api`. Includes authentication.
+## Important Links
 
-At the beginning of each cohort, update the versions in [`Gemfile`](Gemfile).
+- [Deployed front end client](https://bgordon83.github.io/project_2_client)
+- [Front end client repository](https://github.com/bgordon83/project_2_client)
+- [Deployed back end API](https://https://calm-basin-76423.herokuapp.com/)
+- [GitHub Repo for project's back end](https://github.com/bgordon83/Project_2_api)
 
-## Prerequisites
+# User Stories
 
--   [rails-api-examples-walkthrough](https://git.generalassemb.ly/ga-wdi-boston/rails-api-examples-walkthrough)
+Bens Workout_log User Stories:
 
-## Dependencies
+As a visitor when you land on the homepage you see input fields for sign-up and sign-in.
 
-Install with `bundle install`.
+User signup success story
 
--   [`rails-api`](https://github.com/rails-api/rails-api)
--   [`rails`](https://github.com/rails/rails)
--   [`active_model_serializers`](https://github.com/rails-api/active_model_serializers)
--   [`ruby`](https://www.ruby-lang.org/en/)
--   [`postgres`](http://www.postgresql.org)
+As a visitor you visit the homepage and fill in the signup fields with an email, a password, and a password confirmation. You click signup and you are rerouted to to a new page with a green success message reading “Sign-in Successfully”. You also see new fields to create a workout log, update a specific log, delete a specific log, view a single log and a button to view all your logs.
 
-## Installation
+User signup failure
 
-### Download Template:
-1.  [Download](../../archive/master.zip) this template.
-1.  Unzip and rename the template directory (`unzip ~/Downloads/rails-api-template-master.zip`)
-1.  Move into the new project and `git init`.
+As a visitor you visit the homepage to register for an account you fill in the signup fields with an email that already exists and a red message pops up saying “signup failed”.
 
-### Customize Template:
-1.  Empty [`README.md`](README.md) and fill with your own content.
-1.  Rename your app module in `config/application.rb` (change
-    `RailsApiTemplate`).
-1.  Rename your project database in `config/database.yml` (change
-    `'rails-api-template'`).
+As a visitor, you can sign-up with a unique email, and your password doesn’t match your password confirmation, you also see the error message.
 
-### Setup Environment:
-1.  Install dependencies with `bundle install`.
-1.  `git add` and `git commit` your changes.
-1.  Create a `.env` for sensitive settings (`touch .env`).
-1.  Generate new `development` and `test` secrets (`bundle exec rails secret`).
-1.  Store them in `.env` with keys `SECRET_KEY_BASE_<DEVELOPMENT|TEST>`
-    respectively.
-1.  In order to make requests to your deployed API, you will need to set
-    `SECRET_KEY_BASE` in the environment of the production API (for example, using `heroku config:set` or the Heroku dashboard).
-1.  In order to make requests from your deployed client application, you will
-    need to set `CLIENT_ORIGIN` in the environment of the production API (for example, `heroku config:set CLIENT_ORIGIN=https://<github-username>.github.io`).
-    See more about deploying to heroku [rails-heroku-setup-guide](https://git.generalassemb.ly/ga-wdi-boston/rails-heroku-setup-guide)
+User view all workouts
 
-### Setup your database:
-    - bin/rails db:drop (if it already exists)
-    - bin/rails db:create
-    - bin/rails db:migrate
-    - bin/rails db:seed
-    - bin/rails db:examples
+As a registered user I visit the homepage and login, I click on a buttton called view all workouts, I see on the bottom of the page multiple workouts.
 
-  **Note**: Do this for each database you want to set up. Your local database and production (Heroku) database will both need to be set up in this way!
+User Show
 
+As a registered user, I visit the homepage and login, I see a button called “view workout_log” with a field on the right asking for a workout id. I input an id, and click on view workout_log, and a single workout_log renders below. 
 
-### Run your server!
-1. Run the API server with `bin/rails server` or `bundle exec rails server`.
+User can update a workout
 
-## Structure
-
-This template follows the standard [project structure](https://gist.git.generalassemb.ly/danman01/64472678e25552412050c237ced48964) in Rails.
+As a registered user, I visit the homepage and login, I see a button called “update workout” with multiple fields on the left asking for “routine, reps  set, time_spent.” I fill in these fields and click “update workout” and a green message appears saying “workout updated successfully.” 
 
-`curl` command scripts are stored in [`curl-scripts`](curl-scripts) with names that
-correspond to API actions.
+# Technologies Used
 
-User authentication is built-in.
+- HTML
+- JavaScript
+- Ruby
+- Ruby on Rails
+- AJAX
+- jQuery
+- NodeJS
+- GruntJs
 
-Tests (also called specs) are located in the `spec` folder.
+# Wire Frame
+https://imgur.com/a/Ac42Xs5
 
-## Tasks
+# Development & Problem Solving Process
 
-Developers should run these often!
+-I wanted to design a workout applicatuon because its something Ive used before, and felt like it was something I could create because ive used one, and understand it.
+-The back end was fine for me, except for change password. My priorities to to get sign-up and sign in. I got stuck not being able to retrieve my workouts, and lost sight of all of the other basic issues such as not changing over the error messages/color to their respective place.
 
--   `bin/rails routes` lists the endpoints available in your API.
--   `bin/rspec spec` runs automated tests located in the `spec` folder.
--   `bin/rails console` opens a REPL that pre-loads the API.
--   `bin/rails db` opens your database client and loads the correct database.
--   `bin/rails server` starts the API.
--   `curl-scripts/*.sh` run various `curl` commands to test the API. See below.
-
-## User Stories 
-https://docs.google.com/document/d/1WVB6LlNN-uPtIFBQTb6r49RpLTDOhJxpPAqeVdhkUEE/edit?usp=sharing
-
-## API
 
-Use this as the basis for your own API documentation. Add a new third-level
-heading for your custom entities, and follow the pattern provided for the
-built-in user authentication documentation.
-
-Scripts are included in [`curl-scripts`](curl-scripts) to test built-in actions. Add your
-own scripts to test your custom API. As an alternative, you can write automated
-tests in RSpec to test your API.
-
-### Authentication Endpoints and Curl Scripts
-
-| Verb   | URI Pattern            | Controller#Action |
-|--------|------------------------|-------------------|
-| POST   | `/sign-up`             | `users#signup`    |
-| POST   | `/sign-in`             | `users#signin`    |
-| PATCH  | `/change-password`     | `users#changepw`  |
-| DELETE | `/sign-out`            | `users#signout`   |
-| POST   | `/workout_logs`        | `workout_logs#create` |
-| GET    | `/workout_logs`        | `workout_logs#index` |
-| GET    | `/workout_logs/:id`    | `workout_logs#show` |
-| PATCH  | `/workout_logs`        | `workout_logs#update` |
-| DELETE | `/workout_logs`        | `workout_logs#destroy` |
-
-#### POST /sign-up
-
-Request:
-
-```sh
-curl http://localhost:4741/sign-up \
-  --include \
-  --request POST \
-  --header "Content-Type: application/json" \
-  --data '{
-    "credentials": {
-      "email": "'"${EMAIL}"'",
-      "password": "'"${PASSWORD}"'",
-      "password_confirmation": "'"${PASSWORD}"'"
-    }
-  }'
-```
-
-```sh
-EMAIL=ava@bob.com PASSWORD=hannah curl-scripts/auth/sign-up.sh
-```
-
-Response:
-
-```md
-HTTP/1.1 201 Created
-Content-Type: application/json; charset=utf-8
-
-{
-  "user": {
-    "id": 1,
-    "email": "ava@bob.com"
-  }
-}
-```
-
-#### POST /sign-in
-
-Request:
-
-```sh
-curl http://localhost:4741/sign-in \
-  --include \
-  --request POST \
-  --header "Content-Type: application/json" \
-  --data '{
-    "credentials": {
-      "email": "'"${EMAIL}"'",
-      "password": "'"${PASSWORD}"'"
-    }
-  }'
-```
-
-```sh
-EMAIL=ava@bob.com PASSWORD=hannah curl-scripts/auth/sign-in.sh
-```
-
-Response:
-
-```md
-HTTP/1.1 200 OK
-Content-Type: application/json; charset=utf-8
-
-{
-  "user": {
-    "id": 1,
-    "email": "ava@bob.com",
-    "token": "BAhJIiVlZDIwZTMzMzQzODg5NTBmYjZlNjRlZDZlNzYxYzU2ZAY6BkVG--7e7f77f974edcf5e4887b56918f34cd9fe293b9f"
-  }
-}
-```
-
-#### PATCH /change-password
-
-Request:
-
-```sh
-curl --include --request PATCH "http://localhost:4741/change-password" \
-  --header "Authorization: Token token=$TOKEN" \
-  --header "Content-Type: application/json" \
-  --data '{
-    "passwords": {
-      "old": "'"${OLDPW}"'",
-      "new": "'"${NEWPW}"'"
-    }
-  }'
-```
-
-```sh
-OLDPW='hannah' NEWPW='elle' TOKEN='BAhJIiVlZDIwZTMzMzQzODg5NTBmYjZlNjRlZDZlNzYxYzU2ZAY6BkVG--7e7f77f974edcf5e4887b56918f34cd9fe293b9f' sh curl-scripts/auth/change-password.sh
-```
-
-Response:
-
-```md
-HTTP/1.1 204 No Content
-```
-
-#### DELETE /sign-out
-
-Request:
-
-```sh
-curl http://localhost:4741/sign-out \
-  --include \
-  --request DELETE \
-  --header "Authorization: Token token=$TOKEN"
-```
-
-```sh
-TOKEN='BAhJIiVlZDIwZTMzMzQzODg5NTBmYjZlNjRlZDZlNzYxYzU2ZAY6BkVG--7e7f77f974edcf5e4887b56918f34cd9fe293b9f' sh curl-scripts/auth/sign-out.sh
-```
-
-Response:
-
-```md
-HTTP/1.1 204 No Content
-```
-#### POST /workout_logs
-
-Request:
-
-```sh
-curl http://localhost:4741/workout_logs \
-  --include \
-  --request POST \
-  --header "Content-Type: application/json" \
-  --data '{
-   
-      "routine": "ARMS",
-      "reps": "3",
-      "sets": "4",
-      "time_spent": "60"
-    
-  }'
-```
-
-```sh
-EMAIL=ava@bob.com PASSWORD=hannah curl-scripts/auth/sign-up.sh
-```
-
-Response:
-
-```md
-HTTP/1.1 201 Created
-Content-Type: application/json; charset=utf-8
-
-{
-  "user": {
-    "id": 1,
-    "email": "ava@bob.com"
-  }
-}
-```
-#### GET /workout_logs
-
-Request:
-
-```sh
-curl http://localhost:4741/workout_logs \
-  --include \
-  --request GET \
-  --header "Content-Type: application/json" \
- 
-  }'
-```
-
-```sh
-EMAIL=ava@bob.com PASSWORD=hannah curl-scripts/auth/sign-up.sh
-```
-
-Response:
-
-```md
-HTTP/1.1 201 Created
-Content-Type: application/json; charset=utf-8
-
-{
-  "workout_logs": { [
-    "id": 1,
-    "reps": "4",
-    "routine": "arms",
-    "sets": "3",
-    "time_spent": "40",
-    ["id": 2,
-    "reps": "4",
-    "routine": "arms",
-    "sets": "3",
-    "time_spent": "40"    ]
-    }
-```
-
-
-#### GET /workout_logs
-
-Request:
-
-```sh
-curl http://localhost:4741/workout_logs/1 \
-  --include \
-  --request GET \
-  --header "Content-Type: application/json" \
- 
-  }'
-```
-
-```sh
-EMAIL=ava@bob.com PASSWORD=hannah curl-scripts/auth/sign-up.sh
-```
-
-Response:
-
-```md
-HTTP/1.1 201 Created
-Content-Type: application/json; charset=utf-8
-
-{
-  "workout_logs": { [
-    "id": 1,
-    "reps": "4",
-    "routine": "arms",
-    "sets": "3",
-    "time_spent": "40"
-    }
-```
-
-#### PATCH /workout_logs/:id
-
-Request:
-
-```sh
-curl http://localhost:4741/workout_logs/1\
-  --include \
-  --request Patch \
-  --header "Content-Type: application/json" \
-  --data:  params{routine: arms sets: 20 reps: 20 time_spent: 20, id: 1}
-  }'
-```
-
-```sh
-EMAIL=ava@bob.com PASSWORD=hannah curl-scripts/auth/sign-up.sh
-```
-
-Response:
-
-```md
-HTTP/1.1 201 Created
-Content-Type: application/json; charset=utf-8
-
-{
-  "workout_logs": { [
-    "id": 1,
-    "reps": "20",
-    "routine": "arms",
-    "sets": "20",
-    "time_spent": "20"
-    }
-```
-#### DELETE /workout_logs/:id
-
-Request:
-
-```sh
-curl http://localhost:4741/workout_logs/1\
-  --include \
-  --request DELETE \
-  --header "Content-Type: application/json" \
- 
-  }'
-```
-
-```sh
-EMAIL=ava@bob.com PASSWORD=hannah curl-scripts/auth/sign-up.sh
-```
-
-### Keeping your database up to date 
-
-Remember, creating and applying [migrations](https://edgeguides.rubyonrails.org/active_record_migrations.html#creating-a-migration) are two different things. After you create a migration (one of those files that lives in `db/migrate/`), you need to apply it to each database using `bin/rails db:migrate` (local) or `heroku run rails db:migrate` (production).
-
-### Rolling Back a Database Migration
-
-Sometimes you need to revert a migration that you already applied. There are many ways to revert your database to a previous state, and one of the most common is simply rolling back (reverting) the last migration that you ran. Read more in the [Rails Guide](https://edgeguides.rubyonrails.org/active_record_migrations.html#rolling-back)
-
-### Reset Database without dropping
-
-If you don't want to completely [reset the database](https://edgeguides.rubyonrails.org/active_record_migrations.html#resetting-the-database) (maybe you have data you want to preserve?), you have other, less destructive options. One is rolling back a specific migration by specifying the `VERSION` that the database should revert to. Ask a consultant if you need assistance, as **database commands like these are non-reversable.**
-
-To rerun _all_ migrations, starting from `VERSION=0`, you would do:
-
-
-```sh
-bin/rails db:migrate VERSION=0
-bin/rails db:migrate db:seed db:examples
-```
-
-To run this command (and others like this) on Heroku, just append `heroku run` before the `rails` command.
-
-
-Here is some of my own content for project two.
-## Additional Resources
-- [rails-heroku-setup-guide](https://git.generalassemb.ly/ga-wdi-boston/rails-heroku-setup-guide)
-- [Rails Guides: API-only app](http://guides.rubyonrails.org/api_app.html)
-- [Building a JSON API with Rails 5](https://blog.codeship.com/building-a-json-api-with-rails-5/)
-
-## [License](LICENSE)
-
-1.  All content is licensed under a CC­BY­NC­SA 4.0 license.
-1.  All software code is licensed under GNU GPLv3. For commercial use or
-    alternative licensing, please contact legal@ga.co. -->
+# Unsolved Problems
+I still had trouble with the readme.
+- readme file wont update on back end repo.
