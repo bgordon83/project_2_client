@@ -83,12 +83,12 @@ const failureMessage = function (newText) {
 }
 
 const onSignUpSuccess = () => {
-  successMessage('Signed up Successfully!')
+  successMessage('Sign-up Successfully!')
   $('#message').css('color', 'green')
 }
 
 const onSignUpFailure = () => {
-  failureMessage('Signed up Failed')
+  failureMessage('Sign-up Failed')
   $('#message').css('color', 'red')
 }
 const onSignInSuccess = (responseData) => {
@@ -105,6 +105,7 @@ const onSignInSuccess = (responseData) => {
 }
 
 const onSignInFailure = function () {
+  failureMessage('Sign-in Failure')
   $('#message').css('color', 'red')
 }
 
@@ -120,6 +121,7 @@ const onChangePasswordFailure = function () {
 
 const onSignOutSuccess = function () {
   successMessage('Signed out successfully')
+  $('#message').css('color', 'green')
   // $('#sign-up, #sign-in').show()
   // $('#change-password').hide()
   // $('#sign-out').hide()
@@ -132,7 +134,8 @@ const onSignOutSuccess = function () {
 }
 
 const onSignOutFailure = function () {
-  failureMessage('Signed out failed')
+  failureMessage('Sign-out failed')
+  $('#message').css('color', 'red')
 }
 
 module.exports = {
