@@ -1,5 +1,5 @@
 
-# Fitness Buddy
+# Fitness/Stretch Buddy
 This app allows the user to track and record their workout sessions, and then view workout being given an id in order to update or delete.
 
 
@@ -12,7 +12,7 @@ This app allows the user to track and record their workout sessions, and then vi
 
 # User Stories
 
-Bens Workout_log User Stories:
+Bens Workout_log/stretch buddy User Stories:
 
 As a visitor when you land on the homepage you see input fields for sign-up and sign-in.
 
@@ -37,6 +37,16 @@ As a registered user, I visit the homepage and login, I see a button called “v
 User can update a workout
 
 As a registered user, I visit the homepage and login, I see a button called “update workout” with multiple fields on the left asking for “routine, reps  set, time_spent.” I fill in these fields and click “update workout” and a green message appears saying “workout updated successfully.” 
+
+As a registered user, I would like to be able to create a log of any stetch performed on the muscle group I have worked out
+
+As a registered user, I would like to update the stretch performed on muscle group worked.
+
+As a registered user, I would like to delete the stretch I performed on the muscle group worked.
+
+As a registered user, I would like an ID number in order to view all stretches performed on the muscle groups worked. 
+
+
 
 # Technologies Used
 
